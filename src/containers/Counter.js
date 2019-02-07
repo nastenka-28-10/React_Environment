@@ -6,18 +6,19 @@ import { incrementCounter, decrementCounter } from "../actionCreators/CounterAct
 
 const mapStateToProps = (state) => {
     return {
-        value: state,
+        counters: state.countersNumber,
+        value: state.counterValue,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onIncrement: () => {
-            dispatch(incrementCounter())
+        onIncrement: (index) => {
+            dispatch(incrementCounter(index))
         },
-        onDecrement: () => {
-            dispatch(decrementCounter())
-        }
+        onDecrement: (index) => {
+            dispatch(decrementCounter(index))
+        },
     }
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Counter from '../../containers/Counter';
+import CounterList from '../../containers/CounterList';
 
 
 import './App.scss';
@@ -12,7 +12,7 @@ export default class App extends Component {
 
     render() {
         return(
-            <Counter />
+            <CounterList />
         )
     }
 }

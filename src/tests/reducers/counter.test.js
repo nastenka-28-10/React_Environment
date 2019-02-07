@@ -1,4 +1,4 @@
-import counter from '../../reducers/counter';
+import counter from '../../reducers/counterValue';
 
 test('it should be 1 if state is 0, action type is "INCREMENT"', () => {
     expect(counter(0, {type: "INCREMENT"})).toBe(1);

@@ -1,13 +1,28 @@
-import { INCREMENT, DECREMENT } from '../constants/CounterActionTypes';
+import { INCREMENT, DECREMENT, ADD, DELETE } from '../constants/CounterActionTypes';
 
-export function incrementCounter() {
+export function incrementCounter(index) {
     return {
-        type: INCREMENT
+        type: INCREMENT,
+        index,
     }
 }
 
-export function decrementCounter() {
+export function decrementCounter(index) {
     return {
-        type: DECREMENT
+        type: DECREMENT,
+        index,
+    }
+}
+
+export function addCounter() {
+    return {
+        type: ADD
+    }
+}
+
+export function deleteCounter(index) {
+    return {
+        type: DELETE,
+        index,
     }
 }
