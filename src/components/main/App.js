@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import Counter from '../../containers/Counter';
+
+
 import './App.scss';
 
 export default class App extends Component {
@@ -9,9 +12,7 @@ export default class App extends Component {
 
     render() {
         return(
-            <div>
-                <h4>{ this.printStore() }</h4>
-            </div>
+            <Counter />
         )
     }
 }
