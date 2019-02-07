@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Counter from '../components/Counter/Counter';
-import { incrementCounter, decrementCounter } from "../actions/CounterActions";
+import { incrementCounter, decrementCounter } from "../actionCreators/CounterActions";
 
 const mapStateToProps = (state) => {
     return {
