@@ -1,14 +1,15 @@
 import React from 'react';
 
-import Counter from '../Counter/Counter';
+import Counter from '../../containers/Counter';
 import './CounterList.scss';
 
 const CounterItems = ({ counters, onAddCounter, onDeleteCounter }) => {
     const counterItems = counters.map( (counter, index) => {
+        const onDeleteCounterCallback = () => onDeleteCounter(index);
         return(
             <div key={ index }>
-                <Counter value={ counter } index={ index }/>
-                <button onClick={ (index) => onDeleteCounter({ index }) }>Delete Counter</button>
+                <Counter index = { index }/>
+                <button onClick={ onDeleteCounterCallback }>Delete Counter</button>
             </div>
             )
     })

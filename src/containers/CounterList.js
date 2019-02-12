@@ -6,7 +6,7 @@ import { addCounter, deleteCounter } from "../actionCreators/CounterActions";
 
 const mapStateToProps = (state) => {
     return {
-        counters: state.countersNumber,
+        counters: state.countersState,
     }
 }
 

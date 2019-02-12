@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
 
-import counterValue from './counterValue';
-import countersNumber from './countersNumber';
+import countersState from './countersState';
 
 const counterApp = combineReducers(
     {
-        counterValue,
-        countersNumber,
+        countersState,
     }
 );
 

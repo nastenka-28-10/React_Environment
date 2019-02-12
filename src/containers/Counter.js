@@ -2,23 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Counter from '../components/Counter/Counter';
-import { incrementCounter, decrementCounter } from "../actionCreators/CounterActions";
+import { onIncrement, onDecrement } from "../actionCreators/CounterActions";
 
 const mapStateToProps = (state) => {
     return {
-        counters: state.countersNumber,
-        value: state.counterValue,
+        value: state.countersState,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onIncrement: (index) => {
-            dispatch(incrementCounter(index))
-        },
-        onDecrement: (index) => {
-            dispatch(decrementCounter(index))
-        },
+        onIncrement: (index) => dispatch(onIncrement(index)),
+        onDecrement: (index) => dispatch(onDecrement(index))
     }
 }
 
