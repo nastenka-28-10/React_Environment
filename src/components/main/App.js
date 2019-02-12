@@ -12,7 +12,9 @@ export default class App extends Component {
 
     render() {
         return(
-            <CounterList />
+            <div className="wrapper">
+                <CounterList />
+            </div>
         )
     }
 }

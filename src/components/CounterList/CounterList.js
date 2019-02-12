@@ -9,14 +9,14 @@ const CounterItems = ({ counters, onAddCounter, onDeleteCounter }) => {
         return(
             <div key={ index }>
                 <Counter index = { index }/>
-                <button onClick={ onDeleteCounterCallback }>Delete Counter</button>
+                <button className="counters-number counters-number__delete" onClick={ onDeleteCounterCallback }>Delete Counter</button>
             </div>
             )
     })
     return (
         <div >
+            <button className="counters-number counters-number__add" onClick={ onAddCounter }>Add Counter</button>
             { counterItems }
-            <button onClick={ onAddCounter }>Add Counter</button>
         </div>
     )
 }
