@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CounterList from '../components/CounterList/CounterList';
-import { addCounter, deleteCounter } from "../actionCreators/CounterActions";
+import { addCounter, deleteCounter } from "../actionCreators/counterActions";
 
 const mapStateToProps = (state) => {
     return {

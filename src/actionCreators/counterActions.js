@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, ADD, DELETE } from '../constants/CounterActionTypes';
+import { INCREMENT, DECREMENT, ADD, DELETE } from '../constants/counterActionTypes';
 
 export function onIncrement(index) {
     return {

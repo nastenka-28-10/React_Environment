@@ -1,4 +1,4 @@
-import { ADD, DELETE, INCREMENT, DECREMENT  } from "../constants/CounterActionTypes";
+import { ADD, DELETE, INCREMENT, DECREMENT  } from "../constants/counterActionTypes";
 
 const countersState = (state=[0], action)=>{
     switch(action.type) {
