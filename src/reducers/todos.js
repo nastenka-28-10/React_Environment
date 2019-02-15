@@ -5,10 +5,12 @@ const todo = ( state, action ) => {
         case TOGGLE_TODO:
             if(state.id!==action.id)
                 return state;
-            else return {
-                ...state,
-                completed: !state.completed
-            };
+            else {
+                return {
+                    ...state,
+                    completed: !state.completed
+                };
+            }
         case ADD_TODO:
             return {
                 id: action.id,
@@ -19,7 +21,7 @@ const todo = ( state, action ) => {
     }
 }
 
-const todos = ( state=[], action ) => {
+export default function todos( state=[], action ) {
     switch(action.type){
         case TOGGLE_TODO:
             return state.map( td => todo(td, action) );
@@ -31,5 +33,3 @@ const todos = ( state=[], action ) => {
         default: return state;
     }
 }
-
-export default todos;

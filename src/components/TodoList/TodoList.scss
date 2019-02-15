@@ -1,0 +1,15 @@
+.todo-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+
+  &__form {
+    border: 1px solid black;
+  }
+}
+
+.todos{
+  cursor: pointer;
+}

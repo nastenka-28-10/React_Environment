@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
-import counterApp from '../reducers';
+import todoApp from '../reducers';
 
-const store = createStore(counterApp);
+const store = createStore(todoApp);
 
 export default store;

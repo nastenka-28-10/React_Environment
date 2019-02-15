@@ -1,4 +1,4 @@
-import todos from '../../reducers/todos';
+import todos from "../../reducers/todos";
 import { toggleTodo, addTodo } from "../../actionCreators/todoActions";
 
 test('"completed" should be true', () => {
