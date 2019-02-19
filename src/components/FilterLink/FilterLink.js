@@ -1,10 +1,10 @@
 import React from 'react';
 
-export const FilterLink = ({
+const FilterLink = ({
     filter,
     currentFilter,
+    onClick,
     children,
-    onSetVisibilityFilter
 }) => {
     if (filter === currentFilter )
         return <span>{ children }</span>;
@@ -13,10 +13,12 @@ export const FilterLink = ({
            onClick={
                (e) => {
                    e.preventDefault();
-                   onSetVisibilityFilter(filter)
+                   onClick(filter)
                }
            }>
             { children }
         </a>
     )
 }
+
+export default FilterLink;

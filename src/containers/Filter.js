@@ -1,22 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { FilterLink } from '../components/FilterLink/FilterLink';
+import Filter from '../components/Filter/Filter';
 import { setVisibilityFilter } from '../actionCreators/visibilityFilterActions';
 
 const mapStateToProps = (state) => {
     return {
-
+        visibilityFilter: state.visibilityFilter,
     }
-}
+};
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onSetVisibilityFilter: (filter) => dispatch(setVisibilityFilter(filter))
+const mapDispatchToProps = (dispatch) => ({
+    onFilterClick(filter){
+        dispatch(setVisibilityFilter(filter));
     }
-}
+});
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(FilterLink);
+)(Filter);
