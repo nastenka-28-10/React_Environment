@@ -4,11 +4,9 @@ import { connect } from 'react-redux';
 import Filter from '../components/Filter/Filter';
 import { setVisibilityFilter } from '../actionCreators/visibilityFilterActions';
 
-const mapStateToProps = (state) => {
-    return {
-        visibilityFilter: state.visibilityFilter,
-    }
-};
+const mapStateToProps = (state) => ({
+    visibilityFilter: state.visibilityFilter,
+});
 
 const mapDispatchToProps = (dispatch) => ({
     onFilterClick(filter){

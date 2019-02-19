@@ -2,7 +2,7 @@ import React from 'react';
 
 import './AddTodo.scss';
 
-const AddTodo = ({ onAddTodo }) => {
+const AddTodo = ({ todos, onAddTodo }) => {
     let input;
     return(
         <div className="todo-wrapper">
@@ -12,7 +12,7 @@ const AddTodo = ({ onAddTodo }) => {
                 }} />
                 <button onClick={
                     () => {
-                        onAddTodo(input.value)
+                        onAddTodo(todos.length, input.value)
                         input.value = '';
                     }
                 }>
