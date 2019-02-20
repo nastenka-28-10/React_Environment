@@ -1,10 +1,13 @@
+import { v4 } from 'node-uuid';
+
 import todos from "../../reducers/todos";
 import { toggleTodo, addTodo } from "../../actionCreators/todoActions";
 
 test('"completed" should be true', () => {
+    const id0 = v4();
     const stateBefore = [
         {
-            id: 0,
+            id: id0,
             text: 'todo number 1',
             completed: false
         }
@@ -12,17 +15,22 @@ test('"completed" should be true', () => {
 
     const stateAfter = [
         {
-            id: 0,
+            id: id0,
             text: 'todo number 1',
             completed: true
         }
     ];
 
-    expect(todos(stateBefore, toggleTodo(0)))
+    expect(todos(stateBefore, toggleTodo(id0)))
         .toEqual(stateAfter);
 });
 
 test('it should add one new task', () => {
+    jest.mock('uuid', () => {
+        return {
+            v4: jest.fn(() => 1)
+        };
+    });
     const stateBefore = [
         {
             id: 0,
@@ -44,5 +52,5 @@ test('it should add one new task', () => {
         }
     ];
 
-    expect(todos(stateBefore, addTodo(1, "todo number 2"))).toEqual(stateAfter);
+    expect(todos(stateBefore, addTodo("todo number 2"))).toEqual(stateAfter);
 });

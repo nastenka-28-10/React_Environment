@@ -12,7 +12,7 @@ const AddTodo = ({ todos, onAddTodo }) => {
                 }} />
                 <button onClick={
                     () => {
-                        onAddTodo(todos.length, input.value)
+                        onAddTodo(input.value)
                         input.value = '';
                     }
                 }>

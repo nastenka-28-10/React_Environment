@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    onAddTodo(id, text) {
-        dispatch(addTodo(id, text))
+    onAddTodo(text) {
+        dispatch(addTodo(text))
     }
 });
 

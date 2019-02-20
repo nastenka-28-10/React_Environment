@@ -1,3 +1,5 @@
+import { v4 } from 'node-uuid';
+
 import { TOGGLE_TODO, ADD_TODO } from '../constants/todoActionTypes';
 
 export const toggleTodo = (id) => ({
@@ -5,10 +7,10 @@ export const toggleTodo = (id) => ({
     id,
 });
 
-export const addTodo = (id, text) => {
+export const addTodo = (text) => {
     return {
         type: ADD_TODO,
-        id,
+        id: v4(),
         text,
     }
 };

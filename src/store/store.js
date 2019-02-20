@@ -1,15 +1,18 @@
 import { createStore } from 'redux';
+import throttle from 'lodash/throttle';
 
 import todoApp from '../reducers';
+import { loadState } from "../localStorage";
 
-const persistedState = {
-    todos: [{
-        id: '0',
-        text: 'Welcome back!',
-        completed: false
-    }],
-};
+const configureStore = () => {
+    const persistedState = loadState();
+    const store = createStore(todoApp, persistedState);
+    store.subscribe(throttle(() => {
+        saveState({
+            todos: store.getState().todos,
+        })
+    }), 1000);
+    return store;
+}
 
-const store = createStore(todoApp, persistedState);
-
-export default store;
+export default configureStore;
