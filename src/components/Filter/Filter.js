@@ -1,33 +1,26 @@
 import React from 'react';
 
 import FilterLink from '../FilterLink/FilterLink';
-import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE} from "../../constants/visibilityFilterActionTypes";
 
-const Filter = ({ visibilityFilter, onFilterClick }) => {
+const Filter = () => {
     return (
         <p>
             Show:
             {'  '}
             <FilterLink
-                filter = { SHOW_ALL }
-                currentFilter = { visibilityFilter }
-                onClick = { onFilterClick }
+                filter = 'all'
             >
                 All
             </FilterLink>
             {'  '}
             <FilterLink
-                filter={ SHOW_ACTIVE }
-                currentFilter = { visibilityFilter }
-                onClick = { onFilterClick }
+                filter='active'
             >
                 Active
             </FilterLink>
             {'  '}
             <FilterLink
-                filter={ SHOW_COMPLETED }
-                currentFilter = { visibilityFilter }
-                onClick = { onFilterClick }
+                filter='completed'
             >
                 Completed
             </FilterLink>

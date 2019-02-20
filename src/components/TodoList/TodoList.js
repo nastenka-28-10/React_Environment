@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import AddTodo from '../../containers/AddTodo';
-import Filter from '../../containers/Filter';
+import Filter from '../Filter/Filter';
 import Todo from '../Todo/Todo';
 import './TodoList.scss';
 

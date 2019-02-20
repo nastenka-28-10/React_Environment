@@ -1,23 +1,18 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-const FilterLink = ({
-    filter,
-    currentFilter,
-    onClick,
-    children,
-}) => {
-    if (filter === currentFilter )
-        return <span>{ children }</span>;
-    return (
-        <a href="#"
-           onClick={
-               (e) => {
-                   e.preventDefault();
-                   onClick(filter)
-               }
-           }>
+const FilterLink = ({ filter, children }) => {
+    return(
+        <NavLink
+            exact
+            to={filter === 'all' ? '' : filter}
+            activeStyle={{
+                textDecoration: 'none',
+                color: 'black'
+            }}
+        >
             { children }
-        </a>
+        </NavLink>
     )
 }
 
