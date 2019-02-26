@@ -33,3 +33,16 @@ export default function todos( state=[], action ) {
         default: return state;
     }
 }
+
+export function getVisibleTodos(state, filter = 'all') {
+    switch (filter) {
+        case 'all':
+            return state;
+        case 'completed':
+            return state.filter( item => item.completed)
+        case 'active':
+            return state.filter( item => !item.completed)
+        default: throw new Error(`Unknown filter ${filter}`)
+    }
+}
+
