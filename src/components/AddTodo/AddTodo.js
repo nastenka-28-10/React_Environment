@@ -2,7 +2,7 @@ import React from 'react';
 
 import './AddTodo.scss';
 
-const AddTodo = ({ todos, onAddTodo }) => {
+const AddTodo = ({ onAddTodo }) => {
     let input;
     return(
         <div className="todo-wrapper">

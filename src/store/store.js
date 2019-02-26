@@ -9,7 +9,7 @@ const configureStore = () => {
     const store = createStore(todoApp, persistedState);
     store.subscribe(throttle(() => {
         saveState({
-            todos: store.getState().todos,
+            ...store.getState()
         })
     }), 1000);
     return store;

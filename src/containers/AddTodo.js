@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import AddTodo from '../components/AddTodo/AddTodo';
 import { addTodo } from "../actionCreators/todoActions";
 
-const mapStateToProps = (state) => ({
-    todos: state.todos,
-});
-
 const mapDispatchToProps = (dispatch) => ({
     onAddTodo(text) {
         dispatch(addTodo(text))
@@ -15,6 +11,6 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(AddTodo);
