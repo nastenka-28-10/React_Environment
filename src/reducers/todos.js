@@ -3,7 +3,7 @@ import {  combineReducers } from 'redux';
 import { TOGGLE_TODO, ADD_TODO } from '../constants/todoActionTypes';
 import todo from './todo';
 
-const byId = ( state={}, action ) => {
+export const byId = ( state={}, action ) => {
     switch(action.type){
         case ADD_TODO:
         case TOGGLE_TODO:
@@ -16,7 +16,7 @@ const byId = ( state={}, action ) => {
     }
 }
 
-const allIds = (state = [], action) => {
+export const allIds = (state = [], action) => {
     switch(action.type){
         case 'ADD_TODO':
             return [...state, action.id];
@@ -33,7 +33,7 @@ export default todos;
 
 const getAllTodos = (state) => state.allIds.map(id => state.byId[id]);
 
-const getVisibleTodos = (state, filter = 'all') => {
+export const getVisibleTodos = (state, filter = 'all') => {
     const allTodos = getAllTodos(state);
     switch (filter) {
         case 'all':
@@ -45,6 +45,4 @@ const getVisibleTodos = (state, filter = 'all') => {
         default: throw new Error(`Unknown filter ${filter}`);
     }
 }
-
-export { byId, allIds, getVisibleTodos };
 
