@@ -3,19 +3,20 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import TodoList from '../components/TodoList/TodoList';
-import { fetchTodos } from '../api';
-import { toggleTodo } from "../actionCreators/todoActions";
+import { toggleTodo, fetchTodos } from "../actionCreators";
 import { getVisibleTodos } from "../reducers/index";
-
-fetchTodos('all').then(todo => console.log(todo));
 
 class VisibleTodoList extends Component {
     //componentDidMount вызывается 1 раз => если фильтер изменится =>
     //props.filter поменяются, но данные подтягиваться уже не будут =>
     // нам нужен метод componentDidUpdate(prevProps)
     componentDidMount(){
-        fetchTodos(this.props.filter)
-            .then(todos => console.log(this.props.filter, todos));
+        this.fetchData();
+    }
+
+    fetchData(){
+        const { filter, fetchTodos } = this.props;
+        fetchTodos(filter);
     }
 
     render(){
@@ -24,8 +25,7 @@ class VisibleTodoList extends Component {
 
     componentDidUpdate(prevProps){
         if(prevProps.filter !== this.props.filter)
-            fetchTodos(this.props.filter)
-                .then(todos => console.log(this.props.filter, todos));
+            this.fetchData();
     }
 }
 
@@ -48,7 +48,10 @@ const mapStateToProps = (state, { match }) => {
 //{ callbackName: action }
 VisibleTodoList = withRouter(connect(
     mapStateToProps,
-    { onTodoClick: toggleTodo }
+    {
+        onTodoClick: toggleTodo,
+        fetchTodos,
+    }
 )(VisibleTodoList));
 
 export default VisibleTodoList;
