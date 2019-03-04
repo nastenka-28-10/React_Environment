@@ -3,7 +3,7 @@ import promise from 'redux-promise';
 import { createLogger } from 'redux-logger';
 //import throttle from 'lodash/throttle';
 
-import todoApp from '../reducers';
+import todos from '../reducers/index';
 //import { loadState, saveState } from "../localStorage";
 
 /*const logger = (store) => (next) => {
@@ -50,7 +50,7 @@ const configureStore = () => {
         })
     }), 1000);*/
     return createStore(
-        todoApp,
+        todos,
         //persistentState,
         applyMiddleware(...middlewares),
     );

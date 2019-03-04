@@ -1,6 +1,6 @@
 import { v4 } from 'node-uuid';
 
-import todos from "../../reducers/todos";
+import todos from "../../reducers/index";
 import { toggleTodo, addTodo } from "../../actionCreators/index";
 
 test('"completed" should be true', () => {
