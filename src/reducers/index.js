@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { RECEIVED_TODOS } from '../constants/todoActionTypes';
+import { FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE } from '../constants/todoActionTypes';
 import byId, * as fromById from './byId';
 import createList, * as fromList from './createList';
 import todo from './todo';
@@ -13,7 +13,7 @@ const listByFilter = combineReducers({
 
 const todos = combineReducers({
     byId,
-    listByFilter
+    listByFilter,
 });
 
 export default todos;
@@ -26,4 +26,5 @@ export const getVisibleTodos = (state, filter) => {
 }
 
 export const getIsFetching = (state, filter) => fromList.getIsFetching(state.listByFilter[filter]);
+export const getErrorMessage = (state, filter) => fromList.getErrorMessage(state.listByFilter[filter]);
 

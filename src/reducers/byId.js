@@ -1,8 +1,8 @@
-import { RECEIVED_TODOS } from '../constants/todoActionTypes';
+import { FETCH_TODOS_SUCCESS } from '../constants/todoActionTypes';
 
 const byId = ( state={}, action ) => {
     switch(action.type){
-        case RECEIVED_TODOS:
+        case FETCH_TODOS_SUCCESS:
             const nextState = { ...state };
             action.response.forEach(
                 todo => {

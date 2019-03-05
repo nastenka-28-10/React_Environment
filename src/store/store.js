@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 //import promise from 'redux-promise';
 import { createLogger } from 'redux-logger';
 //import throttle from 'lodash/throttle';
@@ -33,10 +34,10 @@ const promise = (store) => (next) => action => {
     })
 }*/
 
-const thunk = (store) => (next) => (action) =>{
+/*const thunk = (store) => (next) => (action) =>{
     typeof action === 'function' ?
-        action(store.dispatch) : next(action);
-}
+        action(store.dispatch, store.getState) : next(action);
+}*/
 
 const configureStore = () => {
     //const persistedState = loadState();
