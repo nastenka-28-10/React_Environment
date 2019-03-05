@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 
-import TodoList from '../../containers/VisibleTodoList';
+import VisibleTodoList from '../../containers/VisibleTodoList';
+import AddTodo from '../../containers/AddTodo';
+import Filter from '../Filter/Filter';
 import './App.scss';
 
 const App = () => {
     return(
         <div className="wrapper">
-            <TodoList/>
+            <AddTodo/>
+            <Filter/>
+            <VisibleTodoList/>
         </div>
     )
 }

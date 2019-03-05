@@ -1,6 +1,6 @@
 import { v4 } from 'node-uuid';
 
-import { TOGGLE_TODO, ADD_TODO, RECEIVED_TODOS } from '../constants/todoActionTypes';
+import { TOGGLE_TODO, ADD_TODO, REQUEST_TODOS, RECEIVED_TODOS } from '../constants/todoActionTypes';
 import * as api from '../api';
 
 export const toggleTodo = (id) => ({
@@ -8,23 +8,26 @@ export const toggleTodo = (id) => ({
     id,
 });
 
-export const addTodo = (text) => {
-    return {
-        type: ADD_TODO,
-        id: v4(),
-        text,
-    }
-};
+export const addTodo = (text) => ({
+    type: ADD_TODO,
+    id: v4(),
+    text,
+});
 
-const receiveTodos = (filter, response) => {
-    return {
+export const requestTodos = (filter) => ({
+    type: REQUEST_TODOS,
+    filter
+});
+
+const receiveTodos = (filter, response) => ({
         type: RECEIVED_TODOS,
         filter,
         response,
-    }
-}
+});
 
-export const fetchTodos = (filter) =>
-    api.fetchTodos(filter).then(
-        response => receiveTodos(filter, response)
+export const fetchTodos = (filter) => (dispatch) =>{
+    dispatch(requestTodos(filter));
+    return api.fetchTodos(filter).then(
+        response => dispatch(receiveTodos(filter, response))
     );
+}
