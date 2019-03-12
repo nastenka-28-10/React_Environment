@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import AddTodo from '../components/AddTodo/AddTodo';
@@ -10,7 +11,7 @@ const mapDispatchToProps = (dispatch) => ({
     }
 });
 
-export default connect(
+export default withRouter(connect(
     null,
     mapDispatchToProps
-)(AddTodo);
+)(AddTodo));

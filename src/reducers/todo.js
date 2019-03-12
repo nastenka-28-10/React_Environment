@@ -1,4 +1,4 @@
-import { TOGGLE_TODO, ADD_TODO } from '../constants/todoActionTypes';
+import { TOGGLE_TODO, ADD_TODO_SUCCESS } from '../constants/todoActionTypes';
 
 const todo = ( state, action ) => {
     switch (action.type) {
@@ -11,7 +11,7 @@ const todo = ( state, action ) => {
                     completed: !state.completed
                 };
             }
-        case ADD_TODO:
+        case ADD_TODO_SUCCESS:
             return {
                 id: action.id,
                 text: action.text,
