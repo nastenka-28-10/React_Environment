@@ -1,5 +1,7 @@
 import { v4 } from 'node-uuid';
 
+import { normalize } from 'normalizr';
+import * as schema from './schema';
 import { TOGGLE_TODO, ADD_TODO_SUCCESS, FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE } from '../constants/todoActionTypes';
 import { getIsFetching } from '../reducers';
 import * as api from '../api';
@@ -11,9 +13,11 @@ export const toggleTodo = (id) => ({
 
 export const addTodo = (text) => (dispatch) => {
     api.addTodo(text).then( response => {
+        console.log('normalized response',
+            normalize(response, schema.todo));
         dispatch({
             type: ADD_TODO_SUCCESS,
-            response,
+            response: normalize(response, schema.todo),
         })
     })
 }
@@ -26,10 +30,12 @@ export const fetchTodos = (filter) => (dispatch, getState) =>{
     });
     return api.fetchTodos(filter).then(
         response => {
+            console.log('normalized response',
+                normalize(response, schema.arrayOfTodos));
             dispatch({
                 type: FETCH_TODOS_SUCCESS,
                 filter,
-                response,
+                response: normalize(response, schema.arrayOfTodos),
             })
         },
         error => {
