@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 
-import CounterList from '../../containers/CounterList';
-
-
+import VisibleTodoList from '../../containers/VisibleTodoList';
+import AddTodo from '../../containers/AddTodo';
+import Filter from '../Filter/Filter';
 import './App.scss';
 
-export default class App extends Component {
-    printStore(){
-        return 1;
-    }
-
-    render() {
-        return(
-            <div className="wrapper">
-                <CounterList />
-            </div>
-        )
-    }
+const App = () => {
+    return(
+        <div className="wrapper">
+            <AddTodo/>
+            <Filter/>
+            <VisibleTodoList/>
+        </div>
+    )
 }
 
+export default App;

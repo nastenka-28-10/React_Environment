@@ -9,6 +9,7 @@ const createStore = (reducer) => {
         listeners.forEach(listener => listener())
     }
 
+    //subscribe works every time when some action is dispatching
     const subscribe = (listener) => {
         listeners.push(listener);
         return () => {
