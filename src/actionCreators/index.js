@@ -2,14 +2,16 @@ import { v4 } from 'node-uuid';
 
 import { normalize } from 'normalizr';
 import * as schema from './schema';
-import { TOGGLE_TODO, ADD_TODO_SUCCESS, FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE } from '../constants/todoActionTypes';
+import { TOGGLE_TODO_SUCCESS, ADD_TODO_SUCCESS, FETCH_TODOS_REQUEST, FETCH_TODOS_SUCCESS, FETCH_TODOS_FAILURE } from '../constants/todoActionTypes';
 import { getIsFetching } from '../reducers';
 import * as api from '../api';
 
-export const toggleTodo = (id) => ({
-    type: TOGGLE_TODO,
-    id,
-});
+export const toggleTodo = (id) => (dispatch) => {
+    api.toggleTodo(id).then( response => dispatch({
+        type: TOGGLE_TODO_SUCCESS,
+        response: normalize(response, schema.todo),
+    }))
+};
 
 export const addTodo = (text) => (dispatch) => {
     api.addTodo(text).then( response => {

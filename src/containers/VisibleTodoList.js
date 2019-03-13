@@ -61,7 +61,7 @@ const mapStateToProps = (state, { match }) => {
 VisibleTodoList = withRouter(connect(
     mapStateToProps,
     {
-        onTodoClick: toggleTodo,
+        toggleTodo,
         fetchTodos,
     }
 )(VisibleTodoList));
