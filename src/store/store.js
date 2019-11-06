@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
-import counterApp from '../reducers';
+import reactApp from '../reducers';
 
-const store = createStore(counterApp);
+const store = createStore(reactApp);
 
 export default store;
