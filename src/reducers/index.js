@@ -4,4 +4,4 @@ const reactApp = combineReducers(
     {}
 );
 
-export default counterApp;
+export default reactApp;

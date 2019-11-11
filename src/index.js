@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 //import { BrowserRouter } from 'react-router-dom';
 
-//import store from './store/store';
+import store from './store/store';
 
 import App from './components/main/App';
 
@@ -14,7 +14,7 @@ import App from './components/main/App';
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <h1>Hello all</h1>
     </Provider>,
     document.getElementById('root')
 );
